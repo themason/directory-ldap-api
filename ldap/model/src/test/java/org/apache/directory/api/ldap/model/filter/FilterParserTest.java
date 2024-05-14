@@ -59,6 +59,21 @@ public class FilterParserTest
         }
     }
 
+    @Test
+    public void testMissingOpenParentheses()
+    {
+        try
+        {
+            FilterParser.parse( "ou=people)" );
+
+            // The parsing should fail
+            fail( "should fail with bad filter" );
+        }
+        catch ( ParseException pe )
+        {
+            assertTrue( true );
+        }
+    }
 
     /**
      * Tests to avoid deadlocks for invalid filters.
